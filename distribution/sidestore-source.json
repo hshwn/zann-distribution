@@ -2,7 +2,7 @@
   "name": "Zann Source",
   "subtitle": "Private friend builds",
   "description": "Private builds for Zann Walkie",
-  "iconURL": "",
+  "iconURL": "https://raw.githubusercontent.com/hshwn/zann-distribution/main/distribution/icon.png",
   "apps": [
     {
       "name": "ZannWalkie",
@@ -10,14 +10,14 @@
       "developerName": "Zann",
       "subtitle": "Private friend-only walkie-talkie",
       "localizedDescription": "Private beta build for friends.",
-      "iconURL": "",
+      "iconURL": "https://raw.githubusercontent.com/hshwn/zann-distribution/main/distribution/icon.png",
       "tintColor": "#1f2430",
       "category": "social",
       "versions": [
         {
           "version": "0.1.0",
           "buildVersion": "27",
-          "date": "2026-03-03T14:04:45Z",
+          "date": "2026-03-03T14:10:12Z",
           "localizedDescription": "Auto-published build 0.1.0 (27).",
           "downloadURL": "https://github.com/hshwn/zann-distribution/releases/download/ios-v0.1.0-27/ZannWalkie.ipa",
           "size": 11100691,
