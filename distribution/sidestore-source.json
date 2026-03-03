@@ -1,0 +1,38 @@
+{
+  "name": "Zann Source",
+  "subtitle": "Private friend builds",
+  "description": "Private builds for Zann Walkie",
+  "iconURL": "",
+  "apps": [
+    {
+      "name": "ZannWalkie",
+      "bundleIdentifier": "com.zann.walkie",
+      "developerName": "Zann",
+      "subtitle": "Private friend-only walkie-talkie",
+      "localizedDescription": "Private beta build for friends.",
+      "iconURL": "",
+      "tintColor": "#1f2430",
+      "category": "social",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "buildVersion": "27",
+          "date": "2026-03-03T13:58:26Z",
+          "localizedDescription": "Auto-published build 0.1.0 (27).",
+          "downloadURL": "https://github.com/hshwn/zann-distribution/releases/download/ios-v0.1.0-27/ZannWalkie.ipa",
+          "size": 11100691,
+          "sha256": "4333df4db0281d3314b8067c7a092893102141497a235e965cc93dffc880d23a"
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {
+          "NSMicrophoneUsageDescription": "Allow microphone access for push-to-talk voice.",
+          "NSBluetoothAlwaysUsageDescription": "Allow Bluetooth for nearby offline relay.",
+          "NSBluetoothPeripheralUsageDescription": "Allow Bluetooth for nearby offline relay."
+        }
+      }
+    }
+  ],
+  "news": []
+}
