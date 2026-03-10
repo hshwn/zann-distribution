@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Zann Installer</title>
+    <meta name="description" content="Install SideStore, then add the Zann source and install the latest Zann build." />
+    <style>
+      :root {
+        --bg0: #0b1220;
+        --bg1: #0a2a2a;
+        --card: rgba(255,255,255,0.06);
+        --card2: rgba(255,255,255,0.10);
+        --text: rgba(255,255,255,0.92);
+        --muted: rgba(255,255,255,0.68);
+        --border: rgba(255,255,255,0.14);
+        --accent: #7ef0c4;
+        --accent2: #a2b7ff;
+        --danger: #ffb3b3;
+        --shadow: 0 18px 60px rgba(0,0,0,0.42);
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        color: var(--text);
+        font-family: "Avenir Next", Avenir, Futura, "Trebuchet MS", sans-serif;
+        background:
+          radial-gradient(1200px 700px at 15% 15%, rgba(126,240,196,0.16), transparent 60%),
+          radial-gradient(900px 600px at 80% 25%, rgba(162,183,255,0.16), transparent 55%),
+          radial-gradient(900px 700px at 60% 90%, rgba(255,255,255,0.05), transparent 60%),
+          linear-gradient(180deg, var(--bg0), var(--bg1));
+        min-height: 100svh;
+      }
+      a { color: inherit; }
+      .wrap { max-width: 980px; margin: 0 auto; padding: 28px 18px 48px; }
+      .hero {
+        padding: 22px 18px;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+        box-shadow: var(--shadow);
+      }
+      .kicker {
+        display: inline-flex; gap: 10px; align-items: center;
+        padding: 8px 12px;
+        border: 1px solid rgba(255,255,255,0.18);
+        border-radius: 999px;
+        background: rgba(0,0,0,0.18);
+        color: var(--muted);
+        font-size: 13px;
+        letter-spacing: 0.2px;
+      }
+      h1 { margin: 14px 0 8px; font-size: 34px; line-height: 1.12; }
+      p { margin: 0; color: var(--muted); line-height: 1.55; }
+      .grid { display: grid; gap: 14px; margin-top: 16px; grid-template-columns: 1fr; }
+      @media (min-width: 820px) { .grid { grid-template-columns: 1.1fr 0.9fr; } }
+      .card {
+        padding: 16px;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        background: var(--card);
+      }
+      .card h2 { margin: 0 0 8px; font-size: 18px; }
+      .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+      .btn {
+        display: inline-flex; align-items: center; justify-content: center;
+        padding: 10px 12px;
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,0.20);
+        background: rgba(255,255,255,0.06);
+        text-decoration: none;
+        color: var(--text);
+        font-weight: 600;
+        letter-spacing: 0.2px;
+        transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+      }
+      .btn:hover { transform: translateY(-1px); background: rgba(255,255,255,0.10); border-color: rgba(255,255,255,0.32); }
+      .btn.primary { border-color: rgba(126,240,196,0.55); background: rgba(126,240,196,0.10); }
+      .btn.primary:hover { background: rgba(126,240,196,0.16); }
+      .btn.alt { border-color: rgba(162,183,255,0.55); background: rgba(162,183,255,0.10); }
+      .btn.alt:hover { background: rgba(162,183,255,0.16); }
+      .code {
+        margin-top: 12px;
+        padding: 10px 12px;
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,0.14);
+        background: rgba(0,0,0,0.20);
+        font-family: ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        font-size: 12px;
+        overflow-x: auto;
+        color: rgba(255,255,255,0.86);
+      }
+      .qrgrid { display: grid; gap: 12px; grid-template-columns: 1fr; margin-top: 12px; }
+      @media (min-width: 520px) { .qrgrid { grid-template-columns: 1fr 1fr; } }
+      .qr {
+        padding: 12px;
+        border-radius: 14px;
+        border: 1px solid rgba(255,255,255,0.14);
+        background: rgba(0,0,0,0.18);
+      }
+      .qr img {
+        width: 100%;
+        max-width: 320px;
+        height: auto;
+        display: block;
+        border-radius: 10px;
+        border: 1px solid rgba(255,255,255,0.12);
+        background: white;
+      }
+      .qr .label { margin-top: 10px; font-size: 13px; color: var(--muted); }
+      .note {
+        margin-top: 14px;
+        padding: 12px 14px;
+        border-radius: 14px;
+        border: 1px solid rgba(255,179,179,0.35);
+        background: rgba(255,179,179,0.08);
+        color: rgba(255,255,255,0.88);
+      }
+      .foot { margin-top: 16px; font-size: 12px; color: rgba(255,255,255,0.56); }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="hero">
+        <div class="kicker">Zann Installer · SideStore + Zann</div>
+        <h1>Install SideStore, then install Zann.</h1>
+        <p>Open this page on your iPhone in Safari. Then tap the buttons or scan the QR codes.</p>
+        <div class="grid">
+          <div class="card">
+            <h2>1) Download SideStore</h2>
+            <p>Get the official SideStore app and install it using your preferred sideload method.</p>
+            <div class="actions">
+              <a class="btn alt" href="https://sidestore.io/" rel="noreferrer">SideStore website</a>
+              <a class="btn" href="https://github.com/SideStore/SideStore/releases/latest" rel="noreferrer">SideStore GitHub (latest)</a>
+              <a class="btn" href="https://iloader.site/" rel="noreferrer">iLoader (recommended)</a>
+            </div>
+
+            <div class="note">
+              If SideStore says it cannot determine your device UDID, replace the pairing file using iLoader:
+              <a href="https://docs.sidestore.io/docs/advanced/pairing-file" rel="noreferrer">Pairing file guide</a>.
+            </div>
+          </div>
+
+          <div class="card">
+            <h2>2) Add the Zann source</h2>
+            <p>This adds or updates the Zann source inside SideStore.</p>
+            <div class="actions">
+              <a class="btn primary" href="sidestore://source?url=https%3A%2F%2Fraw.githubusercontent.com%2Fhshwn%2Fzann-distribution%2Fmain%2Fdistribution%2Fsidestore-source.json">Add Zann Source</a>
+            </div>
+            <div class="code" id="sourceUrl">https://raw.githubusercontent.com/hshwn/zann-distribution/main/distribution/sidestore-source.json</div>
+          </div>
+
+          <div class="card">
+            <h2>3) Install Zann</h2>
+            <p>Either install directly (latest build) or install from the Zann source inside SideStore.</p>
+            <div class="actions">
+              <a class="btn primary" href="sidestore://install?url=https%3A%2F%2Fgithub.com%2Fhshwn%2Fzann-distribution%2Freleases%2Fdownload%2Fios-v0.1.0-29%2FZannWalkie.ipa">Direct Install Zann</a>
+              <a class="btn" href="https://github.com/hshwn/zann-distribution/releases/download/ios-v0.1.0-29/ZannWalkie.ipa" rel="noreferrer">Download IPA</a>
+            </div>
+            <div class="foot">Latest build: ZannWalkie 0.1.0 (29)</div>
+          </div>
+
+          <div class="card">
+            <h2>QR Codes</h2>
+            <p>Scan these with the iPhone camera.</p>
+            <div class="qrgrid">
+              <div class="qr">
+                <img src="sidestore-source.png" alt="Add Zann source QR" />
+                <div class="label">Add Zann Source</div>
+              </div>
+              <div class="qr">
+                <img src="sidestore-install.png" alt="Install Zann QR" />
+                <div class="label">Direct Install Zann</div>
+              </div>
+            </div>
+            <div class="foot">Tip: After adding the source, install Zann from inside SideStore to always get updates.</div>
+          </div>
+        </div>
+      </div>
+      <div class="foot">Installer generated by Zann release tooling.</div>
+    </div>
+  </body>
+</html>
