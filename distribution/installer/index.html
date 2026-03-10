@@ -4,40 +4,37 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Zann Installer</title>
-    <meta name="description" content="Install SideStore, then add the Zann source and install the latest Zann build." />
+    <meta name="description" content="Add the Zann source in SideStore." />
     <style>
       :root {
-        --bg0: #0b1220;
-        --bg1: #0a2a2a;
-        --card: rgba(255,255,255,0.06);
-        --card2: rgba(255,255,255,0.10);
+        --bg: #0f1218;
+        --panel: rgba(20,26,36,0.60);
+        --panel2: rgba(31,36,48,0.70); /* Zann-ish tint */
         --text: rgba(255,255,255,0.92);
-        --muted: rgba(255,255,255,0.68);
-        --border: rgba(255,255,255,0.14);
+        --muted: rgba(255,255,255,0.70);
+        --border: rgba(255,255,255,0.12);
         --accent: #7ef0c4;
-        --accent2: #a2b7ff;
         --danger: #ffb3b3;
-        --shadow: 0 18px 60px rgba(0,0,0,0.42);
+        --shadow: 0 18px 60px rgba(0,0,0,0.40);
       }
       * { box-sizing: border-box; }
       body {
         margin: 0;
         color: var(--text);
-        font-family: "Avenir Next", Avenir, Futura, "Trebuchet MS", sans-serif;
+        font-family: ui-rounded, "SF Pro Rounded", "Avenir Next", Avenir, system-ui, -apple-system, sans-serif;
         background:
-          radial-gradient(1200px 700px at 15% 15%, rgba(126,240,196,0.16), transparent 60%),
-          radial-gradient(900px 600px at 80% 25%, rgba(162,183,255,0.16), transparent 55%),
-          radial-gradient(900px 700px at 60% 90%, rgba(255,255,255,0.05), transparent 60%),
-          linear-gradient(180deg, var(--bg0), var(--bg1));
+          radial-gradient(900px 650px at 20% 10%, rgba(126,240,196,0.18), transparent 55%),
+          radial-gradient(900px 650px at 80% 60%, rgba(31,36,48,0.55), transparent 60%),
+          linear-gradient(180deg, var(--bg), #0a0d12);
         min-height: 100svh;
       }
       a { color: inherit; }
-      .wrap { max-width: 980px; margin: 0 auto; padding: 28px 18px 48px; }
+      .wrap { max-width: 820px; margin: 0 auto; padding: 28px 18px 48px; }
       .hero {
         padding: 22px 18px;
         border: 1px solid var(--border);
         border-radius: 18px;
-        background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+        background: linear-gradient(180deg, var(--panel2), var(--panel));
         box-shadow: var(--shadow);
       }
       .kicker {
@@ -53,12 +50,11 @@
       h1 { margin: 14px 0 8px; font-size: 34px; line-height: 1.12; }
       p { margin: 0; color: var(--muted); line-height: 1.55; }
       .grid { display: grid; gap: 14px; margin-top: 16px; grid-template-columns: 1fr; }
-      @media (min-width: 820px) { .grid { grid-template-columns: 1.1fr 0.9fr; } }
       .card {
         padding: 16px;
         border: 1px solid var(--border);
         border-radius: 16px;
-        background: var(--card);
+        background: rgba(0,0,0,0.14);
       }
       .card h2 { margin: 0 0 8px; font-size: 18px; }
       .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
@@ -77,8 +73,6 @@
       .btn:hover { transform: translateY(-1px); background: rgba(255,255,255,0.10); border-color: rgba(255,255,255,0.32); }
       .btn.primary { border-color: rgba(126,240,196,0.55); background: rgba(126,240,196,0.10); }
       .btn.primary:hover { background: rgba(126,240,196,0.16); }
-      .btn.alt { border-color: rgba(162,183,255,0.55); background: rgba(162,183,255,0.10); }
-      .btn.alt:hover { background: rgba(162,183,255,0.16); }
       .code {
         margin-top: 12px;
         padding: 10px 12px;
@@ -122,27 +116,12 @@
   <body>
     <div class="wrap">
       <div class="hero">
-        <div class="kicker">Zann Installer · SideStore + Zann</div>
-        <h1>Install SideStore, then install Zann.</h1>
-        <p>Open this page on your iPhone in Safari. Then tap the buttons or scan the QR codes.</p>
+        <div class="kicker">Zann Installer</div>
+        <h1>Add Zann to SideStore.</h1>
+        <p>Open this page on your iPhone in Safari, then tap the button.</p>
         <div class="grid">
           <div class="card">
-            <h2>1) Download SideStore</h2>
-            <p>Get the official SideStore app and install it using your preferred sideload method.</p>
-            <div class="actions">
-              <a class="btn alt" href="https://sidestore.io/" rel="noreferrer">SideStore website</a>
-              <a class="btn" href="https://github.com/SideStore/SideStore/releases/latest" rel="noreferrer">SideStore GitHub (latest)</a>
-              <a class="btn" href="https://iloader.site/" rel="noreferrer">iLoader (recommended)</a>
-            </div>
-
-            <div class="note">
-              If SideStore says it cannot determine your device UDID, replace the pairing file using iLoader:
-              <a href="https://docs.sidestore.io/docs/advanced/pairing-file" rel="noreferrer">Pairing file guide</a>.
-            </div>
-          </div>
-
-          <div class="card">
-            <h2>2) Add the Zann source</h2>
+            <h2>Add the Zann source</h2>
             <p>This adds or updates the Zann source inside SideStore.</p>
             <div class="actions">
               <a class="btn primary" href="sidestore://source?url=https%3A%2F%2Fraw.githubusercontent.com%2Fhshwn%2Fzann-distribution%2Fmain%2Fdistribution%2Fsidestore-source.json">Add Zann Source</a>
@@ -151,29 +130,12 @@
           </div>
 
           <div class="card">
-            <h2>3) Install Zann</h2>
-            <p>Either install directly (latest build) or install from the Zann source inside SideStore.</p>
+            <h2>Troubleshooting</h2>
+            <p>If SideStore says it can’t determine your device UDID, replace the pairing file.</p>
             <div class="actions">
-              <a class="btn primary" href="sidestore://install?url=https%3A%2F%2Fgithub.com%2Fhshwn%2Fzann-distribution%2Freleases%2Fdownload%2Fios-v0.1.0-29%2FZannWalkie.ipa">Direct Install Zann</a>
-              <a class="btn" href="https://github.com/hshwn/zann-distribution/releases/download/ios-v0.1.0-29/ZannWalkie.ipa" rel="noreferrer">Download IPA</a>
+              <a class="btn" href="https://docs.sidestore.io/docs/advanced/pairing-file" rel="noreferrer">Pairing File Guide</a>
             </div>
-            <div class="foot">Latest build: ZannWalkie 0.1.0 (29)</div>
-          </div>
-
-          <div class="card">
-            <h2>QR Codes</h2>
-            <p>Scan these with the iPhone camera.</p>
-            <div class="qrgrid">
-              <div class="qr">
-                <img src="sidestore-source.png" alt="Add Zann source QR" />
-                <div class="label">Add Zann Source</div>
-              </div>
-              <div class="qr">
-                <img src="sidestore-install.png" alt="Install Zann QR" />
-                <div class="label">Direct Install Zann</div>
-              </div>
-            </div>
-            <div class="foot">Tip: After adding the source, install Zann from inside SideStore to always get updates.</div>
+            <div class="note">This is a SideStore pairing-file issue, not a Zann issue.</div>
           </div>
         </div>
       </div>
