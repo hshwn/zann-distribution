@@ -16,6 +16,15 @@
       "versions": [
         {
           "version": "0.1.0",
+          "buildVersion": "32",
+          "date": "2026-03-11T14:56:31Z",
+          "localizedDescription": "Auto-published build 0.1.0 (32).",
+          "downloadURL": "https://github.com/hshwn/zann-distribution/releases/download/ios-v0.1.0-32/ZannWalkie.ipa",
+          "size": 11816010,
+          "sha256": "d9a09d2de312439b87b324766226c50696c7c94bace7dd6fd8e1b28a649634d5"
+        },
+        {
+          "version": "0.1.0",
           "buildVersion": "31",
           "date": "2026-03-11T14:35:52Z",
           "localizedDescription": "Auto-published build 0.1.0 (31).",
