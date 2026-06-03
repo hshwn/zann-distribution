@@ -110,36 +110,117 @@
         background: rgba(255,179,179,0.08);
         color: rgba(255,255,255,0.88);
       }
+      .note.ok {
+        border-color: rgba(126,240,196,0.35);
+        background: rgba(126,240,196,0.08);
+      }
+      .safe {
+        margin-top: 14px;
+        padding: 12px 14px;
+        border-radius: 14px;
+        border: 1px solid rgba(255,255,255,0.14);
+        background: rgba(0,0,0,0.18);
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.5;
+      }
+      .safe strong { color: var(--text); }
+      .stepnum {
+        display: inline-flex; align-items: center; justify-content: center;
+        width: 26px; height: 26px; flex: none;
+        margin-right: 10px;
+        border-radius: 999px;
+        background: rgba(126,240,196,0.16);
+        border: 1px solid rgba(126,240,196,0.45);
+        color: var(--accent);
+        font-size: 14px; font-weight: 700;
+      }
+      .card h2 { display: flex; align-items: center; }
+      .once {
+        display: inline-block; margin-left: 8px;
+        padding: 2px 8px; border-radius: 999px;
+        font-size: 11px; font-weight: 700; letter-spacing: 0.3px;
+        color: rgba(255,255,255,0.75);
+        background: rgba(255,255,255,0.07);
+        border: 1px solid rgba(255,255,255,0.16);
+      }
       .foot { margin-top: 16px; font-size: 12px; color: rgba(255,255,255,0.56); }
     </style>
   </head>
   <body>
     <div class="wrap">
       <div class="hero">
-        <div class="kicker">Zann Installer</div>
-        <h1>Add Zann to SideStore.</h1>
-        <p>Open this page on your iPhone in Safari, then tap the button.</p>
+        <div class="kicker">Zann · private beta</div>
+        <h1>Get Zann on your iPhone.</h1>
+        <p>A private, friend-only walkie-talkie. Open this page <strong>on your iPhone in Safari</strong> and follow the steps top to bottom.</p>
+        <div class="safe">
+          <strong>Is this safe?</strong> Zann isn't on the App Store yet, so it installs through <strong>SideStore</strong> — a trusted, open-source app installer. You're only installing my app; nothing here can touch the rest of your phone. It signs with <em>your own</em> Apple ID, on <em>your</em> device.
+        </div>
         <div class="grid">
+
           <div class="card">
-            <h2>Add the Zann source</h2>
-            <p>This adds or updates the Zann source inside SideStore.</p>
+            <h2><span class="stepnum">0</span>Install SideStore<span class="once">one-time</span></h2>
+            <p>If you don't already have SideStore, install it first. This is the only step that needs a computer once — after this, everything is on your phone.</p>
+            <div class="actions">
+              <a class="btn primary" href="https://docs.sidestore.io/docs/getting-started/" rel="noreferrer">SideStore Setup Guide</a>
+            </div>
+            <div class="note ok">Already have SideStore? Skip straight to Step 1.</div>
+          </div>
+
+          <div class="card">
+            <h2><span class="stepnum">1</span>Add the Zann source</h2>
+            <p>This adds (or updates) Zann inside SideStore so you always get my latest build.</p>
             <div class="actions">
               <a class="btn primary" href="sidestore://source?url=https%3A%2F%2Fraw.githubusercontent.com%2Fhshwn%2Fzann-distribution%2Fmain%2Fdistribution%2Fsidestore-source.json">Add Zann Source</a>
+            </div>
+            <div class="qrgrid">
+              <div class="qr">
+                <img src="sidestore-source.png" alt="Scan to add the Zann source" />
+                <div class="label">Or scan this with another phone's camera.</div>
+              </div>
             </div>
             <div class="code" id="sourceUrl">https://raw.githubusercontent.com/hshwn/zann-distribution/main/distribution/sidestore-source.json</div>
           </div>
 
           <div class="card">
+            <h2><span class="stepnum">2</span>Install Zann</h2>
+            <p>Tap install. SideStore signs it with your Apple ID and drops it on your home screen.</p>
+            <div class="actions">
+              <a class="btn primary" href="sidestore://install?url=https%3A%2F%2Fgithub.com%2Fhshwn%2Fzann-distribution%2Freleases%2Fdownload%2Fios-v0.1.0-37%2FZannWalkie.ipa">Install Zann</a>
+              <a class="btn" href="https://github.com/hshwn/zann-distribution/releases/download/ios-v0.1.0-37/ZannWalkie.ipa" rel="noreferrer">Download .ipa</a>
+            </div>
+            <div class="qrgrid">
+              <div class="qr">
+                <img src="sidestore-install.png" alt="Scan to install Zann" />
+                <div class="label">Or scan to install.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2><span class="stepnum">3</span>Open Zann &amp; join</h2>
+            <p>Launch Zann, enter the invite code, then pick any name. You're in.</p>
+            <div class="code">Invite code: FRIENDS-ONLY</div>
+          </div>
+
+          <div class="card">
+            <h2>Heads up: the 7-day refresh</h2>
+            <p>Free sideloaded apps "expire" every 7 days — but SideStore <strong>auto-refreshes Zann over WiFi</strong>, so you usually won't notice. If Zann ever won't open, just open SideStore and tap <em>Refresh</em>. No cable needed.</p>
+            <div class="note ok">Keep SideStore installed — it's what keeps Zann alive.</div>
+          </div>
+
+          <div class="card">
             <h2>Troubleshooting</h2>
-            <p>If SideStore says it can’t determine your device UDID, replace the pairing file.</p>
+            <p>If SideStore says it can't determine your device UDID, replace the pairing file.</p>
             <div class="actions">
               <a class="btn" href="https://docs.sidestore.io/docs/advanced/pairing-file" rel="noreferrer">Pairing File Guide</a>
             </div>
-            <div class="note">This is a SideStore pairing-file issue, not a Zann issue.</div>
+            <div class="note">This is a SideStore setup issue, not a Zann issue — ping me if you're stuck.</div>
           </div>
+
         </div>
       </div>
-      <div class="foot">Installer generated by Zann release tooling.</div>
+      <div class="foot">Zann 0.1.0 (build 37) · installer generated by Zann release tooling.</div>
     </div>
   </body>
 </html>
